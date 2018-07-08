@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+<section class="articles">
+
+    <articles>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 08/07/2018 à 13:00 dans la catégorie Symfony</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam assumenda accusantium neque. Eius, ex libero.</p>
+            <p>Nemo eos recusandae, delectus neque eum, ipsam dolores distinctio quod voluptatum laudantium obcaecati aperiam magni?</p>
+            <a href="{{ path('single') }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </articles>
+    <articles>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 08/07/2018 à 13:00 dans la catégorie Symfony</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Voluptate obcaecati earum assumenda quis quo facilis modi quaerat dicta, harum nemo. Nobis, provident obcaecati.</p>
+            <p>Doloremque facere voluptatum, explicabo impedit dolor eveniet! Quisquam facilis nostrum minima, eius molestias dicta nihil.</p>
+            <a href="" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </articles>
+    <articles>
+        <h2>Titre de l'article</h2>
+        <div class="metadata">Ecrit le 08/07/2018 à 13:00 dans la catégorie Symfony</div>
+        <div class="content">
+            <img src="http://placehold.it/350x150" alt="">
+            <p>Sit officia culpa sed! Animi totam voluptate harum ratione dolorum accusantium dolor aut distinctio repellendus?</p>
+            <p>Dolorum tempora, assumenda impedit in illo, voluptate dolore, quae harum atque eveniet ipsam error nemo?</p>
+            <a href="" class="btn btn-primary">Lire la suite</a>
+        </div>
+    </articles>
+
+</section>
+
+{% endblock %}
