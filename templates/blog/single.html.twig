@@ -3,11 +3,11 @@
 {% block body %}
 
 <articles>
-        <h2>Titre de l'article</h2>
-        <div class="metadata">Ecrit le 08/07/2018 à 13:00 dans la catégorie Symfony</div>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Ecrit le {{ article.createAt | date('d/m/Y') }} à {{ article.createAt | date('H:i') }} dans la catégorie Symfony</div>
         <div class="content">
-            <img src="http://placehold.it/350x150" alt=""><br>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit cumque iste nobis, autem dignissimos ab aperiam repellendus omnis placeat veritatis voluptas enim sunt vel qui quisquam natus doloribus eaque at temporibus! Quod fugiat vitae illo omnis reiciendis repellat ipsam ipsum aut saepe laborum aspernatur quas pariatur, harum provident officiis voluptatem eum officia ut ea. Dolorum aliquid officia consectetur quam adipisci cumque a quidem, nostrum saepe eos libero, ad aut, voluptatum quibusdam fugiat veritatis consequuntur! Laudantium rem quam maxime obcaecati illum aliquid veritatis debitis repudiandae commodi fugiat deserunt quos sint enim minus, assumenda repellat facere cum. Nemo adipisci dolorum voluptates voluptatem, amet commodi natus distinctio debitis nostrum. Doloremque, eveniet veritatis eaque voluptatem sequi magnam vel animi harum impedit tempore molestiae laboriosam rem autem earum corrupti, labore nobis vitae nihil aliquid architecto maiores suscipit! Labore et magnam, nisi quae consectetur architecto facere possimus natus sint, maiores cumque sed quam? Itaque eos voluptate, saepe accusantium cupiditate at, voluptatem quisquam labore beatae neque exercitationem impedit aliquid facere, tempora minus nobis? Atque deleniti aut architecto? Inventore doloribus fugiat excepturi ut! Iure voluptatem tenetur ullam ipsum ratione. Laborum eveniet natus eaque illum maiores, aliquid accusamus commodi nisi reiciendis iure sint soluta odio ad molestiae neque!
+            <img src="{{ article.image }}" alt=""><br>
+            {{ article.content | raw }}
         </div>
     </articles>
 
