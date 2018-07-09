@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
@@ -38,28 +39,28 @@ class BlogController extends Controller
     /**
      * @Route("/blog/new", name="create_article")
      */
-    public function create(Request $request)
+    public function create(Request $request, ObjectManager $manager)
     {
         $article = new Article();
 
         $form = $this->createFormBuilder($article)
-                     ->add('title', TextType::class, [
-                         'attr' => [
-                             'label' => 'Titre',
-                             'placeholder' => "Titre de l'article"
-                         ]
-                     ])
-                     ->add('content', TextareaType::class, [
-                        'attr' => [
-                            'placeholder' => "Contenue de l'article"
-                        ]
-                    ])
-                     ->add('image', TextType::class, [
-                        'attr' => [
-                            'placeholder' => "Contenue de l'article"
-                        ]
-                     ])
+                     ->add('title')
+                     ->add('content')
+                     ->add('image')
                      ->getForm();
+
+        $form->handleRequest($request);
+
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $article->setCreateAt(new \DateTime());
+
+            $manager->persist($article);
+            $manager->flush();
+
+            return $this->redirectToRoute('single', ['id' => $article->getid()]);
+        }
+
         return $this->render('blog/create.html.twig', [
             'formArticle' => $form->createView()
         ]);
