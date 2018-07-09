@@ -5,7 +5,7 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="https://bootswatch.com/3/simplex/bootstrap.min.css">
         {% block stylesheets %}{% endblock %}
-        
+
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -17,13 +17,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">SymfonyBlog</a>
+                <a class="navbar-brand" href="{{ path('home') }}">SymfonyBlog</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/blog">Articles</a></li>
-                    <li><a href="#">Création d'article</a></li>
+                    <li><a href="{{ path('blog') }}">Articles</a></li>
+                    <li><a href="{{ path('create_article') }}">Création d'article</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Connexion</a></li>
