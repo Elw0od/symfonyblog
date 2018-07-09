@@ -38,8 +38,9 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/new", name="create_article")
+     * @Route("/blog/{id}/edit", name="blog_edit")
      */
-    public function create(Request $request, ObjectManager $manager)
+    public function form(Article $article = null, Request $request, ObjectManager $manager)
     {
         $article = new Article();
 
@@ -53,7 +54,7 @@ class BlogController extends Controller
 
 
         if($form->isSubmitted() && $form->isValid()) {
-            $article->setCreateAt(new \DateTime());
+            $article->setCreatedAt(new \DateTime());
 
             $manager->persist($article);
             $manager->flush();

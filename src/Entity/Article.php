@@ -34,7 +34,7 @@ class Article
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createAt;
+    private $createdAt;
 
     public function getId()
     {
@@ -77,14 +77,14 @@ class Article
         return $this;
     }
 
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createAt;
+        return $this->createdAt;
     }
 
-    public function setCreateAt(\DateTimeInterface $createAt): self
+    public function setCreatedAt(\DateTimeInterface $createAt): self
     {
-        $this->createAt = $createAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

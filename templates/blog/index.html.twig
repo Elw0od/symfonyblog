@@ -9,7 +9,7 @@
 {% for article in articles %}
         <articles>
             <h2>{{ article.title }}</h2>
-            <div class="metadata">Ecrit le {{ article.createAt | date('d/m/Y') }} à {{ article.createAt | date('H:i') }} dans la catégorie Symfony</div>
+            <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie Symfony</div>
             <div class="content">
                 <img src="{{ article.image }}" alt="">
                 {{ article.content | raw }}
