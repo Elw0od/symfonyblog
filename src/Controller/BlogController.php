@@ -42,7 +42,10 @@ class BlogController extends Controller
      */
     public function form(Article $article = null, Request $request, ObjectManager $manager)
     {
-        $article = new Article();
+
+        if(!$article) {
+            $article = new Article();
+        }
 
         $form = $this->createFormBuilder($article)
                      ->add('title')
@@ -54,7 +57,9 @@ class BlogController extends Controller
 
 
         if($form->isSubmitted() && $form->isValid()) {
-            $article->setCreatedAt(new \DateTime());
+            if(!$article->getId()){
+                $article->setCreatedAt(new \DateTime());
+            }
 
             $manager->persist($article);
             $manager->flush();
@@ -63,7 +68,8 @@ class BlogController extends Controller
         }
 
         return $this->render('blog/create.html.twig', [
-            'formArticle' => $form->createView()
+            'formArticle' => $form->createView(),
+            'EditMod' => $article->getId() !== null
         ]);
     }
 

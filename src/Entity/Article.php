@@ -82,7 +82,7 @@ class Article
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
