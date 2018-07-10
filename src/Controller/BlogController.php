@@ -12,6 +12,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
+use App\Form\ArticleType;
 
 class BlogController extends Controller
 {
@@ -47,12 +48,13 @@ class BlogController extends Controller
             $article = new Article();
         }
 
-        $form = $this->createFormBuilder($article)
-                     ->add('title')
-                     ->add('content')
-                     ->add('image')
-                     ->getForm();
+       // $form = $this->createFormBuilder($article)
+       //              ->add('title')
+       //              ->add('content')
+       //              ->add('image')
+       //              ->getForm();
 
+       $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
 
