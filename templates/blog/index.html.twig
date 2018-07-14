@@ -4,19 +4,32 @@
 
 {% block body %}
 
-<section class="articles">
+<div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+          <h1 class="my-4">Page Heading
+            <small>Secondary Text</small>
+          </h1>
 
 {% for article in articles %}
-        <articles>
-            <h2>{{ article.title }}</h2>
-            <div class="metadata">Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie Symfony</div>
-            <div class="content">
-                <img src="{{ article.image }}" alt="">
-                {{ article.content | raw }}
-                <a href="{{ path('single', {'id': article.id }) }}" class="btn btn-primary">Lire la suite</a>
+          <div class="card mb-4">
+            <img class="card-img-top" src="{{ article.image }}" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title">{{ article.title }}</h2>
+              <p class="card-text">{{ article.content | raw }}</p>
+              <a href="{{ path('single', {'id': article.id }) }}" class="btn btn-primary">En savoir plus</a>
             </div>
-        </articles>
-{% endfor %}  
+            <div class="card-footer text-muted">
+              Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie 
+              <a href="#">Start Bootstrap</a>
+            </div>
+          </div>
+{% endfor %}
+        </div>
+
+</div>  
 
 
 </section>
