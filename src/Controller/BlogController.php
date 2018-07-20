@@ -10,8 +10,11 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Article;
+use App\Entity\Category;
+use App\Entity\Comment;
 use App\Repository\ArticleRepository;
 use App\Form\ArticleType;
+
 
 class BlogController extends Controller
 {

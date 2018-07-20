@@ -22,8 +22,7 @@
               <a href="{{ path('single', {'id': article.id }) }}" class="btn btn-primary">En savoir plus</a>
             </div>
             <div class="card-footer text-muted">
-              Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie 
-              <a href="#">Start Bootstrap</a>
+              Ecrit le {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} dans la catégorie {{ article.category.title }}
             </div>
           </div>
 {% endfor %}
